@@ -28,6 +28,9 @@ public class Episodio {
     this.duracaoEmMinutos = duracaoEmMinutos;
   }
 
+  /**
+   * Constructor.
+   */
   public Episodio(Integer id, int numero, int duracaoEmMinutos, Serie serie) {
     this.id = id;
     this.numero = numero;
@@ -41,7 +44,7 @@ public class Episodio {
    * Métodos.
    */
 
-  public Integer Id() {
+  public Integer getId() {
     return id;
   }
 
