@@ -7,6 +7,7 @@ import com.trybe.acc.java.minhasseries.model.Episodio;
 import com.trybe.acc.java.minhasseries.model.Serie;
 import com.trybe.acc.java.minhasseries.repository.SerieRepository;
 import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -81,6 +82,23 @@ public class MinhasSeriesService {
 
     return serie.getEpisodios();
   }
+
+  /**
+   * Método: Calcular Tempo Total de Minutos.
+   */
+
+  public Map<String, Integer> tempoEmMinutos() {
+    int tempoEmMinutos = 0;
+    List<Serie> series = serieRepository.findAll();
+
+    for (Serie serie : series) {
+      for (Episodio episodio : serie.getEpisodios()) {
+        tempoEmMinutos += episodio.getDuracaoEmMinutos();
+      }
+    }
+    return Map.of("tempoEmMinutos", tempoEmMinutos);
+  }
+
 }
 
 

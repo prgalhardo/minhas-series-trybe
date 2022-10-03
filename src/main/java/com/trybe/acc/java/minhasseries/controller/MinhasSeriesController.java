@@ -4,6 +4,7 @@ import com.trybe.acc.java.minhasseries.model.Episodio;
 import com.trybe.acc.java.minhasseries.model.Serie;
 import com.trybe.acc.java.minhasseries.service.MinhasSeriesService;
 import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -46,5 +47,10 @@ public class MinhasSeriesController {
   @GetMapping(value = "/{id}/episodios")
   public List<Episodio> listar(@PathVariable("id") Integer id) {
     return minhasSeriesService.listar(id);
+  }
+
+  @GetMapping(value = "/tempo")
+  public Map<String, Integer> tempoEmMinutos() {
+    return minhasSeriesService.tempoEmMinutos();
   }
 }
