@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@RequestMapping("/series")
+@RequestMapping(value = "/series")
 public class MinhasSeriesController {
   @Autowired
   private MinhasSeriesService minhasSeriesService;
@@ -33,12 +33,12 @@ public class MinhasSeriesController {
     return minhasSeriesService.save(serie);
   }
 
-  @DeleteMapping("{/id}")
+  @DeleteMapping(value = "/{id}")
   public void delete(@PathVariable("id") Integer id) {
     minhasSeriesService.delete(id);
   }
 
-  @PostMapping("/{id}/episodios")
+  @PostMapping(value = "/{id}/episodios")
   public Serie addEpisode(@PathVariable Integer id, @RequestBody Episodio episodio) {
     return minhasSeriesService.addEpisode(id, episodio);
   }
