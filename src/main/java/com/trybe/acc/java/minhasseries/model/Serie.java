@@ -17,7 +17,7 @@ import javax.persistence.OneToMany;
 public class Serie {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private Long id;
+  private Integer id;
   private String nome;
 
   public Serie(String nome) {
@@ -33,7 +33,7 @@ public class Serie {
    * Métodos.
    */
 
-  public Long getId() {
+  public Integer getId() {
     return id;
   }
 
